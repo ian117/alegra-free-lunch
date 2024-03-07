@@ -1,0 +1,23 @@
+body {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.box {
+display: flex;
+flex: content;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+
+}
+
+h1,h4 {
+  text-align: center;
+}
+/* 
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+} */
