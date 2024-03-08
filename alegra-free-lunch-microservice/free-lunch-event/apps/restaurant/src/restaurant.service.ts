@@ -77,7 +77,8 @@ export class RestaurantService {
           model: Ingredients,
           attributes: ['name', 'quantity_stock'],
           through: {
-            attributes: [],
+            attributes: ['quantity_required'],
+            as:'pivot',
           },
         },
       ],

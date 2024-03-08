@@ -30,7 +30,7 @@ function App() {
 
   const [orders, setOrders] = useState([])
   const [ingredients, setIngredients] = useState([])
-  const [shoppingHistory, setShoppingHistory] = useState([])
+  const [shoppingHistories, setShoppingHistory] = useState([])
   const [recipes, setRecipes] = useState([])
 
   // const [users, setUsers] = useState([])
@@ -139,27 +139,90 @@ function App() {
         <div className="box" >🖥️</div>
       ) : (
         <>
-          <div className="box" ><h1>Orders</h1><h4>20 Most Recents</h4></div>
+          <div className="box" ><h1>Ingredients</h1></div>
           <div className="box" >
             <table border={1}>
               <tr>
-                <th>id</th>
-                <th>status</th>
-                <th>recipe name</th>
-                <th>created at</th>
+                <th>name</th>
+                <th>quantity stock</th>
               </tr>
-              {orders.map(order => (
-                <tr key={order.id}>
-                  <td>{order.id}</td>
-                  <td>{order.status}</td>
-                  <td>{order.recipe.name}</td>
-                  <td>{order.created_at}</td>
+              {ingredients.map(ingredient => (
+                <tr key={ingredient.id}>
+                  <td>{ingredient.name}</td>
+                  <td>{ingredient.quantity_stock}</td>
                 </tr>
               ))}
             </table>
           </div>
         </>
       )}
+
+
+      <br></br>
+      <hr></hr>
+      <br></br>
+
+      {loadingOrders ? (
+        <div className="box" >🖥️</div>
+      ) : (
+        <>
+          <div className="box" ><h1>Shopping History</h1></div>
+          <div className="box" >
+            <table border={1}>
+              <tr>
+                <th>id</th>
+                <th>Ingredient Name</th>
+                <th>Bought quantities</th>
+              </tr>
+              {shoppingHistories.map(shoppingHistory => (
+                <tr key={shoppingHistory.id}>
+                  <td>{shoppingHistory.id}</td>
+                  <td>{shoppingHistory.ingredient.name}</td>
+                  <td>{shoppingHistory.quantity_buyed}</td>
+                </tr>
+              ))}
+            </table>
+          </div>
+        </>
+      )}
+
+
+
+      <br></br>
+      <hr></hr>
+      <br></br>
+
+      {loadingOrders ? (
+        <div className="box" >🖥️</div>
+      ) : (
+        <>
+          <div className="box" ><h1>Recipes</h1></div>
+          <div className="box" >
+            <table border={1}>
+              <tr>
+                <th>id</th>
+                <th>Ingredients</th>
+                {/* <th>Ingredients</th> */}
+              </tr>
+              {recipes.map(recipe => (
+                <tr key={recipe.id}>
+                  <td>{recipe.name}</td>
+                  {/* <td>{recipe.ingredients}</td> */}
+                  <td>
+                  {recipe.ingredients.map(ingredient => (
+        <div key={ingredient.name}>
+          {`${ingredient.name}: ${ingredient.pivot.quantity_required}`} {/* Mostrar ingredientes con cantidad */}
+        </div>
+      ))}
+                </td>
+                </tr>
+              ))}
+            </table>
+          </div>
+        </>
+      )}
+
+
     </div>
   )
 }
