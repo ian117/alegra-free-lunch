@@ -1,0 +1,75 @@
+## This is development intended (cause the volumes...)
+name: free-lunch
+services:
+
+  pg_db:
+    image: postgres:14.8-alpine
+    container_name: pg_db
+    restart: always
+    ports:
+      - "3005:5432"
+    env_file:
+      - .env.db.docker
+    volumes:
+      - pg_volume:/var/lib/postgresql/data
+    networks:
+      shared_services:
+
+  kitchen:
+    container_name: kitchen
+    build:
+      context: .
+      dockerfile: ./apps/kitchen/Dockerfile
+    command: pnpm run start:dev kitchen
+    # ports:
+    #   - "${KITCHEN_TCP_PORT}:${KITCHEN_TCP_PORT}"
+    restart: always
+    # volumes:
+    #   - .:/usr/src/app
+    #   - /usr/src/app/node_modules
+    networks:
+      - shared_services
+    env_file:
+      - .env
+
+  food-warehouse:
+    container_name: food-warehouse
+    build:
+      context: .
+      dockerfile: ./apps/food-warehouse/Dockerfile
+    command: pnpm run start:dev food-warehouse
+    # ports:
+    #   - "${FOOD_WAREHOUSE_TCP_PORT}:${FOOD_WAREHOUSE_TCP_PORT}"
+    restart: always
+    # volumes:
+    #   - .:/usr/src/app
+    #   - /usr/src/app/node_modules
+    networks:
+      - shared_services
+    env_file:
+      - .env
+
+  restaurant:
+    container_name: restaurant
+    build:
+      context: .
+      dockerfile: ./apps/restaurant/Dockerfile
+    command: pnpm run start:dev restaurant
+    restart: always
+    ports:
+      - "${PORT}:${PORT}"
+    # volumes:
+    #   - .:/usr/src/app
+    #   - /usr/src/app/node_modules
+    networks:
+      - shared_services
+    env_file:
+      - .env
+
+networks:
+  shared_services:
+    name: shared_services
+
+volumes:
+  pg_volume:
+    name: pg_volume
