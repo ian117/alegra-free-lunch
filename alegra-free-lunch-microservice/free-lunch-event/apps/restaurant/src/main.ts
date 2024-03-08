@@ -7,7 +7,7 @@ import { RestaurantModule } from './restaurant.module';
 async function bootstrap() {
   const app = await NestFactory.create(RestaurantModule);
   const configService = app.get(ConfigService);
-  app.enableCors({ origin: ['*', 'https://alegra-deploy-front-production.up.railway.app/'] });
+  app.enableCors({ origin: '*' });
   app.useLogger(app.get(Logger));
   app.useGlobalPipes(
     new ValidationPipe({
