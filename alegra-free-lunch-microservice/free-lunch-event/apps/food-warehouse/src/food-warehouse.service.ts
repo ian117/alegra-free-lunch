@@ -86,6 +86,12 @@ export class FoodWarehouseService {
     const options: any = {
       where: {},
       order: [],
+      include: [
+        {
+          model: Ingredients,
+          attributes: ['name'],
+        },
+      ],
     };
 
     const { limit, offset } = query;
