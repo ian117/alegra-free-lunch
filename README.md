@@ -23,7 +23,8 @@ localhost:3000/orders
 No me dio tiempo para poner swagger, pero no se necesita enviar nada en el post y las opciones de filtración están completas
 
 -------------
-+ **El frontend** se tendrá que correr en local, haciendo un npm install && npm start, correrá en local con los endpoints del proyecto en cloud   
++ **El frontend** se tendrá que correr en local, haciendo un npm install && npm start, correrá en local con los endpoints del proyecto en cloud
+  + **npm install** y un **npm start** Será suficiente. Por defecto lo dejé en el puerto 3006 💚    
   + no sé por que railway (el servicio que uso) cayó, y no me deja hacer deploy del proyecto, pero no me dio el tiempo para subirlo en otra parte 😢😭
 
 + **El backend**, si gustan correrlo en local, ya dejé todo listo en su respectiva carpeta también con sus instrucciones, es solo usando docker-compose y correr las migraciones
