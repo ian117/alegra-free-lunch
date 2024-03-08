@@ -1,5 +1,5 @@
 ## This is development intended (cause the volumes...)
-name: free-lunch
+# name: free-lunch
 services:
 
   pg_db:
