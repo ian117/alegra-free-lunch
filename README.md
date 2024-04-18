@@ -2,9 +2,9 @@ Hola Gracias por tomarme en cuenta en el proceso de selección
 
 El proyecto está dockerizado y levantado en una **maquina virtual de GCP (Google Cloud)** usando ubuntu 22.04 y con el buen docker-compose v1
 
-Esta es la URL: **http://34.16.181.182:3000** 
+Esta es la URL: ------------- 
 
-Esta es el front: **http://34.16.181.182:3006** 
+Esta es el front: ------------- 
 
 ```
 Get - Filter
@@ -26,7 +26,7 @@ No me dio tiempo para poner swagger, pero no se necesita enviar nada en el post 
 
 -------------
 + **El frontend** se tendrá que correr en local, haciendo un npm install && npm start, correrá en local con los endpoints del proyecto en cloud
-  + **npm install** y un **npm start** Será suficiente. Por defecto lo dejé en el puerto 3006 💚    
+  + **npm install** y un **npm start** Será suficiente. Por defecto lo dejé en el puerto ------------- 💚    
   + no sé por que railway (el servicio que uso) cayó, y no me deja hacer deploy del proyecto, pero no me dio el tiempo para subirlo en otra parte 😢😭
   + Mejor lo subí en google-cloud-platform también 🖥️ Instalé el buen **pm2** 😅 
 
